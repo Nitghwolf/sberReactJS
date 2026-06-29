@@ -1,0 +1,30 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.completedIcon {
+    svg{
+        fill: rgba(57, 244, 46, 0.96);
+    }
+}
+
+.notCompletedIcon {
+    svg {
+        fill: rgba(244, 46, 69, 0.62);
+    }
+}
+
+.deletedIcon {
+    margin-left: auto;
+
+    svg {
+        fill: rgba(244, 46, 69, 0.62);
+    }
+}
