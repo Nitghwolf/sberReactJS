@@ -1,5 +1,6 @@
 # LESSON-1 — Архитектура React-приложений
 Ветка: lesson-1
+Сделал: Волков Андрей тг: @Wolf_Demian
 
 ## Запуск
 npm ci && npm run dev
