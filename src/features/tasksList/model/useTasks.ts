@@ -1,34 +1,26 @@
-import {useEffect, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 import type { Task } from 'entities/task/model/types';
 
 export type Filter = 'all' | 'completed' | 'incomplete';
 
 export function useTasks(initial: Task[]) {
     const [allTasks, setAllTasks] = useState<Task[]>(initial);
-    const [tasks, setTasks] = useState<Task[]>([]);
     const [filter, setFilter] = useState<Filter>('all');
 
-    useEffect(() => {
-        setTasks(allTasks);
-    }, [allTasks]);
-
-    useEffect(() => {
+    const tasks = useMemo(() => {
         switch (filter) {
             case "all":
-                setTasks(allTasks);
-                break;
+                return allTasks;
             case "completed":
-                setTasks(allTasks.filter(task => task.completed));
-                break;
+                return allTasks.filter(task => task.completed);
             case "incomplete":
-                setTasks(allTasks.filter(task => !task.completed));
-                break;
+                return allTasks.filter(task => !task.completed);
         }
-    }, [filter]);
+    }, [allTasks, filter]);
 
-    const removeTask = (id: string): void => {
+    const removeTask = useCallback((id: string): void => {
         setAllTasks(prev => prev.filter(task => task.id !== id));
-    };
+    }, []);
 
     return { tasks, filter, setFilter, removeTask };
 }
