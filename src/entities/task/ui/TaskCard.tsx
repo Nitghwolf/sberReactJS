@@ -4,13 +4,14 @@ import { CheckCircleOutlined,
     CloseCircleOutlined,
     DeleteOutlined
 } from "@ant-design/icons";
+import { memo } from "react";
 
 type Props = {
     task: Task;
     removeTask: (id: string) => void;
 };
 
-export function TaskCard({ task, removeTask }: Props) {
+const TaskCard = memo(function TaskCard({ task, removeTask }: Props) {
     return (
         <div className={styles.card}>
             <p>{task.title}</p>
@@ -21,4 +22,6 @@ export function TaskCard({ task, removeTask }: Props) {
             <DeleteOutlined className={styles.deletedIcon} onClick={() => removeTask(task.id)} />
         </div>
     );
-}
+});
+
+export { TaskCard };

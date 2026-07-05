@@ -21,15 +21,13 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "src",
     "paths": {
-      "shared/*": ["shared/*"],
-      "entities/*": ["entities/*"],
-      "features/*": ["features/*"],
-      "widgets/*": ["widgets/*"],
-      "pages/*": ["pages/*"],
-      "app/*": ["app/*"]
+      "shared/*": ["./src/shared/*"],
+      "entities/*": ["./src/entities/*"],
+      "features/*": ["./src/features/*"],
+      "widgets/*": ["./src/widgets/*"],
+      "pages/*": ["./src/pages/*"],
+      "app/*": ["./src/app/*"]
     }
   },
   "include": ["src"]
